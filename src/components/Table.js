@@ -61,6 +61,7 @@ useEffect(()=>{
                 rank={coin.rank}
                 price={coin.price}
                 sparkline={coin.sparkline}
+                btcprice={coin.btcPrice}
 
 
                 />
