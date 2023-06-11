@@ -13,19 +13,41 @@ export const TableElement = ({id,
   price,  sparkline,
   btcprice
 }) => {
+  const percenter = (percent)=> {
+ 
+    return percent.includes('-') ? percent + '%' : '+' + percent + '%'
+  }
+
+  const gbFormatter = (num) => {
+    return "£" + parseFloat(num).toFixed(2)
+  }
+
+  const btcFormatter = (number) =>{
+    const num = parseFloat(number);
+    return num < 0.000000001 ? "0" : num.toFixed(8);
+  }
+
+  const moneyFormatter = (num) => {
+    if(1000000 <= num && num < 1000000000){
+      return '£' + (num / 1000000).toFixed(1) + 'M';
+    } else if(num >= 1000000000 ){
+      return '£' + (num / 1000000000).toFixed(1) + 'B';
+
+    }
+  }
   return (
     <tr className='table-row' onClick={()=>{/*generateMain(id)*/ }}>
         <td className='td-hash'>{rank}</td>
         <td className='td-name'>{<img className='table-icon' src={iconUrl} alt='icon'/>}{name}<div className='symbol'>&nbsp; • {symbol}</div></td>
         <td className='td-change' style={{color: color}}>
-            <div>
-              {change}
+            <div className='percentage'>
+              {percenter(change)}
             </div>
           </td>
-        <td className='td-price'>{price}</td>
-        <td className='td-btc'>{btcprice}</td>
-        <td className='td-cap'>{marketCap}</td>
-        <td className='td-volume'>{volume24}</td>
+        <td><div className='td-price'>{gbFormatter(price)}</div></td>
+        <td><div className='td-btc'>{btcFormatter(btcprice)}</div></td>
+        <td><div  className='td-cap'>{moneyFormatter(marketCap)}</div></td>
+        <td><div  className='td-volume'>{moneyFormatter(volume24)}</div></td>
         <td className='td-graph'>
             <div className='little-line'>
             {/*<ResponsiveContainer width="100%" height="100%" className='response'>

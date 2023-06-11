@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { TableElement } from './TableElement';
+import '../styles/Table.css'
 
 export const Table = () => {
     const [tableData, setTableData] = useState();
@@ -32,7 +33,7 @@ useEffect(()=>{
 
 
   return (
-    <div>
+    <div className='table-container'>
         <table className='table'>
           <thead className='thead'>
             <tr>

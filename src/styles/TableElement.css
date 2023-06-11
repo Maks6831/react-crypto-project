@@ -1,3 +1,32 @@
 .table-icon {
     max-width: 40px;
+    margin-right: 10px;
 }
+
+
+
+.td-name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    padding: 20px;
+}
+
+.tname {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 30px;
+
+}
+
+
+.percentage, .td-price, .td-btc, .td-cap, .td-volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
