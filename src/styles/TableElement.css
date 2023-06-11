@@ -21,12 +21,18 @@
 }
 
 
-.percentage, .td-price, .td-btc, .td-cap, .td-volume {
+.percentage, .td-hash, .td-price, .td-btc, .td-cap, .td-volume {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.td-btc,.td-cap, .td-volume {
+    color:#8c8c8c !important;
+}
 
-
+.little-line {
+    height: 50px;
+    width: 100px;
+}
 

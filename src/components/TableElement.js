@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/TableElement.css';
+import { Line, LineChart, ResponsiveContainer, YAxis } from 'recharts';
 
 export const TableElement = ({id, 
   symbol,
@@ -13,6 +14,9 @@ export const TableElement = ({id,
   price,  sparkline,
   btcprice
 }) => {
+ 
+  const [graphData, setGraphData] = useState([]);
+  const [graphReady, setGraphReady] = useState(false)
   const percenter = (percent)=> {
  
     return percent.includes('-') ? percent + '%' : '+' + percent + '%'
@@ -35,9 +39,26 @@ export const TableElement = ({id,
 
     }
   }
+ 
+
+  useEffect(() => {
+    if (sparkline.length > 0) {
+      setGraphData(
+        sparkline.map((value, index) => ({
+          value: value,
+          index: index
+        }))
+      );
+      setGraphReady(true);
+    }
+  }, [sparkline]);
+
+  const min = (Math.min(...sparkline)) * 1.5;
+  const max = (Math.max(...sparkline)) * 0.6;
+    
   return (
     <tr className='table-row' onClick={()=>{/*generateMain(id)*/ }}>
-        <td className='td-hash'>{rank}</td>
+        <td><div className='td-hash'>{rank}</div></td>
         <td className='td-name'>{<img className='table-icon' src={iconUrl} alt='icon'/>}{name}<div className='symbol'>&nbsp; • {symbol}</div></td>
         <td className='td-change' style={{color: color}}>
             <div className='percentage'>
@@ -50,27 +71,22 @@ export const TableElement = ({id,
         <td><div  className='td-volume'>{moneyFormatter(volume24)}</div></td>
         <td className='td-graph'>
             <div className='little-line'>
-            {/*<ResponsiveContainer width="100%" height="100%" className='response'>
-        <AreaChart
-            width={150}
-            height={50}
-            data={graphData}
-            margin={{
-                top: -30,
-                right: 0,
-                left: 0,
-                bottom: -30,
-              }}
-              yAxis={{
-                domain: [0, 100],
-                axisLine: false, // hide the axis line
-                tickLine: false, // hide the tick lines
-              }}
+            { graphReady && <ResponsiveContainer width="100%" height="100%">
+        <LineChart 
+        width={300} 
+        height={100} 
+        data={graphData}
+        margin={{
+          top: 10,
+          right: -40,
+          left: -40,
+          bottom: 10,
+        }}
         >
-            <YAxis display="none" domain={[lower, upper]}/>
-          <Area type="monotone" dataKey="price" stroke={lineColor} fill="none"/>
-        </AreaChart>
-            </ResponsiveContainer>*/}
+          <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={1} dot={false} />
+          <YAxis domain={[min, max]} axisLine={false} tickLine={false} display='none' />
+        </LineChart>
+      </ResponsiveContainer>}
             </div>
             </td>
             </tr>

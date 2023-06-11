@@ -1,9 +1,15 @@
 .table-container {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: solid 1px #1a1a1a;
+    border-radius: 0.63158rem;
 }
+.table-headers {
+    color: #8c8c8c !important;
+}
+
 td:nth-child(2),
 th:nth-child(2) {
   width: 300px;
