@@ -3,6 +3,16 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: black;
+}
+
+.font-color {
   color: white;
+}
+
+body {
+  background-color: black;
+}
+
+.cursor {
+  cursor: pointer;
 }

@@ -1,0 +1,130 @@
+.navbar-header {
+    position: sticky;
+    top: 0;
+    min-height: 64px;
+    margin-bottom: 10px;
+    background-color: #0d0d0d;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    
+    z-index: 1000;
+}
+
+.company-name {
+    font-size: 2rem;
+    color: white;
+}
+
+.search-container {
+    border: 1px solid #333333;
+    padding: 7px;
+    border-radius: 20px;
+    display: flex;
+    margin: 10px;
+}
+
+.search-button {
+    color: #333333!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin: 5px;
+    color: gray;
+}
+
+.navbar-links {
+    display: flex;
+    margin-right: 20px;
+
+}
+
+.links {
+    margin: 20px;
+}
+
+.portfolio-link {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 17px;
+    color: rgb(179, 173, 173);
+    
+}
+
+.portfolio-link:hover {
+    background-color: #ff9332;
+    color: black;
+}
+
+.setting-icon{
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+}
+
+.setting-icon:hover {
+    transform: rotate(90deg);
+}
+
+.react-icon {
+    color: red;
+}
+
+.icons {
+    color: blue !important;
+    background-color: black;
+}
+
+.login {
+    color: #e5e5e5;
+    
+}
+
+.login:hover {
+    color: #ff9332;
+}
+
+.get-started {
+    color: black;
+    background-color: #ff9332;
+    padding: 17px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.get-started:hover {
+    background: #ff9e47;
+}
+
+.navbar-1, .navbar-2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.navbar-1 {
+    justify-content: flex-start;
+}
+
+.navbar-2 {
+    justify-content: flex-end;
+}
+
+.child-1 {
+    margin-right: 40px;
+}
+
+.child-2 {
+    margin-left: 30px;
+}
+
+.basket {
+    margin: 20px;
+}

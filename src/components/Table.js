@@ -44,13 +44,14 @@ useEffect(()=>{
             <th className='table-headers tbtc'>price in BTC</th>
             <th className='table-headers tcap'>Market Cap</th>
             <th className='table-headers tvolume'> Volume 24h</th>
-            <th className='table-headers tgraph'>price graph (7d)</th>
+            <th className='table-headers tgraph'>price graph (24h)</th>
             </tr>
           </thead>
           <tbody>
             { tableData &&
             tableData.map((coin)=>(
                 <TableElement
+                key={coin.uuid}
                 id={coin.uuid}
                 symbol={coin.symbol}
                 name={coin.name}

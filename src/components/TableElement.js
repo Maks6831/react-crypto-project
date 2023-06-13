@@ -17,6 +17,8 @@ export const TableElement = ({id,
  
   const [graphData, setGraphData] = useState([]);
   const [graphReady, setGraphReady] = useState(false)
+  const [background, setBackground] = useState();
+  const [lineColor, setLineColor] = useState();
   const percenter = (percent)=> {
  
     return percent.includes('-') ? percent + '%' : '+' + percent + '%'
@@ -53,6 +55,11 @@ export const TableElement = ({id,
     }
   }, [sparkline]);
 
+  useEffect(()=>{
+    change.includes('-') ? setBackground(false): setBackground(true);
+    change.includes('-') ? setLineColor('#ff4d4d') : setLineColor('#6ccf59');
+  },[])
+
   const min = (Math.min(...sparkline)) * 1.5;
   const max = (Math.max(...sparkline)) * 0.6;
     
@@ -62,7 +69,8 @@ export const TableElement = ({id,
         <td className='td-name'>{<img className='table-icon' src={iconUrl} alt='icon'/>}{name}<div className='symbol'>&nbsp; • {symbol}</div></td>
         <td className='td-change' style={{color: color}}>
             <div className='percentage'>
-              {percenter(change)}
+              <div className={!background ? 'background-down':'background-up'} style={{color: lineColor}}>{percenter(change)}</div>
+              
             </div>
           </td>
         <td><div className='td-price'>{gbFormatter(price)}</div></td>
@@ -83,7 +91,7 @@ export const TableElement = ({id,
           bottom: 10,
         }}
         >
-          <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={1} dot={false} />
+          <Line type="monotone" dataKey="value" stroke={lineColor} strokeWidth={1} dot={false} />
           <YAxis domain={[min, max]} axisLine={false} tickLine={false} display='none' />
         </LineChart>
       </ResponsiveContainer>}

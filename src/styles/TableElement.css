@@ -11,6 +11,7 @@
     align-items: center;
     padding-left: 20px;
     padding: 20px;
+    color: white;
 }
 
 .tname {
@@ -27,12 +28,49 @@
     align-items: center;
 }
 
-.td-btc,.td-cap, .td-volume {
+.td-btc,.td-cap, .td-volume, .symbol, .td-hash {
     color:#8c8c8c !important;
 }
 
 .little-line {
     height: 50px;
-    width: 100px;
+    width: 200px;
 }
+
+.percentage {
+    padding: 10px;
+}
+
+.background-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 30px;
+    width: fit-content;
+    background-color: rgba(8, 209, 88, 0.1);
+    padding: 10px;
+    
+    text-align: center;
+  }
+
+.background-down {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px;
+    height: 30px;
+    width: fit-content;
+    background-color: rgba(255, 68, 68, 0.1);
+    
+    text-align: center;
+}
+
+.td-price {
+    color: white;
+}
+
+
+
 
